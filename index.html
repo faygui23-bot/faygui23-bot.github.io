@@ -14,193 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0A1324;
-    --ink-2: #111C33;
-    --ink-line: rgba(255,255,255,.09);
-    --paper: #F5F7FA;
-    --surface: #FFFFFF;
-    --text: #0E1726;
-    --muted: #586377;
-    --on-ink: #E8EDF5;
-    --on-ink-muted: #9AA6BA;
-    --line: #E2E7EF;
-    --accent: #22C58B;
-    --accent-ink: #0B7D56;
-    --accent-soft: #E3F7EF;
-    --radius: 18px;
-    --shadow: 0 1px 2px rgba(10,19,36,.05), 0 8px 24px rgba(10,19,36,.06);
-    --font-head: "Sora", system-ui, sans-serif;
-    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: var(--paper); color: var(--text); font: 16px/1.6 var(--font-body); }
-  img, svg { display: block; }
-  a { color: inherit; }
-  h1, h2, h3 { font-family: var(--font-head); letter-spacing: -.02em; margin: 0; }
-  p { margin: 0; }
-  .wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-  .eyebrow { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
-  .btn { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 22px; border-radius: 999px; font: 600 15px/1 var(--font-body); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .15s ease, background-color .15s ease, border-color .15s ease; }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--accent); color: var(--ink); }
-  .btn-primary:hover { background: #3AD69C; }
-  .btn-ghost { color: var(--on-ink); border-color: rgba(255,255,255,.22); }
-  .btn-ghost:hover { border-color: rgba(255,255,255,.5); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-
-  /* Header */
-  .site-header { position: sticky; top: 0; z-index: 50; background: var(--ink); border-bottom: 1px solid var(--ink-line); }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
-  .brand-name { font: 600 17px/1 var(--font-head); letter-spacing: -.01em; }
-  .brand-name span { color: var(--on-ink-muted); font-weight: 500; }
-  .nav-links { display: flex; align-items: center; gap: 30px; }
-  .nav-links a { color: var(--on-ink-muted); text-decoration: none; font-size: 15px; font-weight: 500; }
-  .nav-links a:hover { color: #fff; }
-  .nav-actions { display: flex; align-items: center; gap: 12px; }
-  .lang { display: inline-flex; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 3px; }
-  .lang button { all: unset; cursor: pointer; font: 500 12px/1 var(--font-mono); color: var(--on-ink-muted); padding: 7px 10px; border-radius: 999px; }
-  .lang button[aria-pressed="true"] { background: rgba(255,255,255,.12); color: #fff; }
-  .nav .btn { height: 40px; padding: 0 18px; font-size: 14px; }
-  .menu-toggle { all: unset; display: none; cursor: pointer; width: 40px; height: 40px; border-radius: 10px; place-items: center; color: #fff; }
-  .menu-toggle svg { margin: auto; }
-
-  /* Hero */
-  .hero { position: relative; overflow: hidden; background: var(--ink); color: var(--on-ink); }
-  .hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--ink-line) 1px, transparent 1px), linear-gradient(90deg, var(--ink-line) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 70% 80% at 70% 30%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 70% 80% at 70% 30%, #000 20%, transparent 75%); }
-  .hero::after { content: ""; position: absolute; width: 720px; height: 720px; right: -160px; top: -260px; background: radial-gradient(circle, rgba(34,197,139,.22), transparent 62%); pointer-events: none; }
-  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; padding: 96px 24px 112px; }
-  .hero .eyebrow { color: var(--accent); }
-  .hero h1 { font-size: clamp(40px, 5.6vw, 66px); line-height: 1.04; font-weight: 600; color: #fff; margin: 20px 0 22px; }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero-sub { font-size: 18px; color: var(--on-ink-muted); max-width: 540px; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-
-  .panel { background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.12); border-radius: 22px; padding: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
-  .panel-head { display: flex; align-items: center; justify-content: space-between; padding: 0 4px 16px; border-bottom: 1px solid var(--ink-line); }
-  .panel-title { font: 600 15px/1.2 var(--font-head); color: #fff; }
-  .dots { display: flex; gap: 6px; }
-  .dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.16); }
-  .rows { list-style: none; margin: 8px 0 0; padding: 0; }
-  .rows li { display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; padding: 14px 4px; border-bottom: 1px solid var(--ink-line); }
-  .rows li:last-child { border-bottom: 0; }
-  .row-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.06); color: var(--on-ink); }
-  .row-label { font-weight: 600; font-size: 15px; color: #fff; line-height: 1.3; }
-  .row-meta { font: 500 12px/1.4 var(--font-mono); color: var(--on-ink-muted); }
-  .status { display: inline-flex; align-items: center; gap: 8px; font: 500 12px/1 var(--font-mono); color: var(--accent); background: rgba(34,197,139,.12); padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
-  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(34,197,139,.6); animation: pulse 2.4s infinite; }
-  .panel-foot { margin-top: 10px; padding: 14px 4px 0; border-top: 1px solid var(--ink-line); font-size: 13px; color: var(--on-ink-muted); display: flex; align-items: center; gap: 8px; }
-  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,139,.55); } 70% { box-shadow: 0 0 0 8px rgba(34,197,139,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,139,0); } }
-  @media (prefers-reduced-motion: reduce) { .status::before { animation: none; } html { scroll-behavior: auto; } .btn:hover { transform: none; } }
-
-  /* Sections */
-  section { scroll-margin-top: 72px; }
-  .section { padding: 104px 0; }
-  .section-head { max-width: 700px; margin-bottom: 52px; }
-  .section-head h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.12; font-weight: 600; margin-top: 14px; }
-  .section-head p:not(.eyebrow) { color: var(--muted); font-size: 18px; margin-top: 16px; }
-
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); }
-  .service-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--ink); color: var(--accent); display: grid; place-items: center; margin-bottom: 26px; }
-  .card h3 { font-size: 22px; font-weight: 600; margin: 10px 0 12px; }
-  .card > p:not(.eyebrow) { color: var(--muted); }
-  .checks { list-style: none; padding: 0; margin: 22px 0 0; border-top: 1px solid var(--line); }
-  .checks li { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 500; }
-  .checks li:last-child { border-bottom: 0; padding-bottom: 0; }
-  .checks svg { flex: none; margin-top: 4px; color: var(--accent-ink); }
-
-  .steps-band { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
-  .step { padding: 0 28px 0 0; position: relative; }
-  .step-num { font: 500 13px/1 var(--font-mono); color: var(--accent-ink); display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
-  .step-num::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-  .step:last-child .step-num::after { background: linear-gradient(90deg, var(--line), transparent); }
-  .step h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
-  .step p { color: var(--muted); font-size: 15px; }
-
-  .apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .app { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
-  .app-icon { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; font: 700 22px/1 var(--font-head); color: #fff; }
-  .app h3 { font-size: 20px; margin: 2px 0 8px; }
-  .app p { color: var(--muted); font-size: 15px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
-  .tag { font: 500 11px/1 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: 6px 9px; border-radius: 999px; }
-  .app-links { display: flex; gap: 16px; margin-top: 14px; font-size: 14px; font-weight: 600; }
-  .app-links a { color: var(--accent-ink); text-decoration: none; }
-  .app-links a:hover { text-decoration: underline; }
-
-  .why { background: var(--ink); color: var(--on-ink); }
-  .why .eyebrow { color: var(--accent); }
-  .why .section-head h2 { color: #fff; }
-  .why .section-head p:not(.eyebrow) { color: var(--on-ink-muted); }
-  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ink-line); border: 1px solid var(--ink-line); border-radius: var(--radius); overflow: hidden; }
-  .why-item { background: var(--ink); padding: 30px 26px; }
-  .why-item svg { color: var(--accent); margin-bottom: 22px; }
-  .why-item h3 { font-size: 18px; color: #fff; margin-bottom: 10px; }
-  .why-item p { color: var(--on-ink-muted); font-size: 15px; }
-
-  .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
-  .contact-grid .section-head { margin-bottom: 28px; }
-  .mail-link { display: inline-flex; align-items: center; gap: 12px; font: 600 20px/1.2 var(--font-head); color: var(--text); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; word-break: break-all; }
-  .contact-note { margin-top: 18px; color: var(--muted); font-size: 15px; }
-  form { display: grid; gap: 16px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  label { display: grid; gap: 7px; font-size: 14px; font-weight: 600; }
-  input, select, textarea { font: 400 16px/1.4 var(--font-body); color: var(--text); background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; width: 100%; }
-  textarea { min-height: 130px; resize: vertical; }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent-ink); background: #fff; box-shadow: 0 0 0 3px var(--accent-soft); }
-  form .btn-primary { justify-self: start; }
-  .form-hint { font-size: 13px; color: var(--muted); }
-
-  .site-footer { background: var(--ink); color: var(--on-ink-muted); padding: 56px 0 40px; font-size: 14px; }
-  .foot-top { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid var(--ink-line); }
-  .tagline { font: 500 15px/1 var(--font-head); color: #fff; margin-top: 14px; }
-  .foot-links { display: flex; gap: 48px; flex-wrap: wrap; }
-  .foot-links h4 { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--on-ink-muted); margin: 0 0 14px; }
-  .foot-links ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-  .foot-links a { color: var(--on-ink); text-decoration: none; }
-  .foot-links a:hover { color: var(--accent); }
-  .foot-bottom { padding-top: 24px; }
-
-  /* Responsive */
-  @media (max-width: 980px) {
-    .hero-inner { grid-template-columns: 1fr; padding-top: 72px; padding-bottom: 88px; }
-    .services { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
-  @media (max-width: 860px) {
-    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--ink); border-bottom: 1px solid var(--ink-line); padding: 8px 16px 16px; }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 14px 4px; border-bottom: 1px solid var(--ink-line); font-size: 16px; }
-    .menu-toggle { display: grid; }
-    .nav .btn { display: none; }
-    .apps { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 560px) {
-    .wrap { padding: 0 16px; }
-    .hero-inner { padding: 56px 16px 72px; gap: 40px; }
-    .hero-sub { font-size: 17px; }
-    .section { padding: 72px 0; }
-    .section-head { margin-bottom: 36px; }
-    .card { padding: 24px; }
-    .steps, .why-grid { grid-template-columns: 1fr; }
-    .step { padding-right: 0; }
-    .field-row { grid-template-columns: 1fr; }
-    .panel { padding: 16px; }
-    .rows li { grid-template-columns: 36px 1fr auto; gap: 10px; }
-    .row-icon { width: 36px; height: 36px; }
-    .app { grid-template-columns: 52px 1fr; gap: 16px; }
-    .app-icon { width: 52px; height: 52px; font-size: 18px; border-radius: 13px; }
-    .brand-name span { display: none; }
-  }
-</style>
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
@@ -213,7 +27,7 @@
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="#services" data-i18n="nav.services">Services</a>
       <a href="#approach" data-i18n="nav.approach">How we work</a>
-      <a href="#apps" data-i18n="nav.apps">Our apps</a>
+      <a href="/apps" data-i18n="nav.apps">Our apps</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -346,41 +160,34 @@
         <h2 data-i18n="apps.title">We build and publish our own apps, too.</h2>
         <p data-i18n="apps.sub">The same care goes into every client project.</p>
       </div>
-      <div class="apps">
-        <article class="card app">
-          <div class="app-icon" style="background:#0E7C66">CB</div>
-          <div>
-            <h3>Carnet Boutique</h3>
-            <p data-i18n="a1.desc">Digital credit book for small shops: customer balances, payment reminders by WhatsApp or SMS, and PDF statements. Works offline.</p>
-            <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">FR</span></div>
-            <div class="app-links"><a href="/support" data-i18n="a1.support">Support</a><a href="/privacy" data-i18n="a1.privacy">Privacy policy</a></div>
-          </div>
-        </article>
-        <article class="card app">
+      <div class="app-strip">
+        <a class="card app-mini" href="/apps#dumuni-yala">
+          <div class="app-icon has-img"><img src="/assets/apps/dumuni-yala.png" alt="" width="56" height="56"></div>
+          <div class="mini-text"><h3>Dumuni Yala</h3><p data-i18n="m.dy">Find and contact restaurants near you</p></div>
+          <span class="status-pill status-live" data-i18n="st.live">On the App Store</span>
+        </a>
+        <a class="card app-mini" href="/apps#carnet-boutique">
+          <div class="app-icon has-img"><img src="/assets/apps/carnet-boutique.png" alt="" width="56" height="56"></div>
+          <div class="mini-text"><h3>Carnet Boutique</h3><p data-i18n="m.cb">Digital credit book for small shops</p></div>
+          <span class="status-pill status-soon" data-i18n="st.soon">Coming soon</span>
+        </a>
+        <a class="card app-mini" href="/apps#tontine-facile">
           <div class="app-icon" style="background:#C2551C">TF</div>
-          <div>
-            <h3>Tontine Facile</h3>
-            <p data-i18n="a2.desc">Savings-group manager: rounds, contributions, whose turn it is, and WhatsApp summaries.</p>
-            <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">FR · EN</span></div>
-          </div>
-        </article>
-        <article class="card app">
+          <div class="mini-text"><h3>Tontine Facile</h3><p data-i18n="m.tf">Savings-group (tontine) manager</p></div>
+          <span class="status-pill status-dev" data-i18n="st.dev">In development</span>
+        </a>
+        <a class="card app-mini" href="/apps#revise">
           <div class="app-icon" style="background:#3B4FD8">R</div>
-          <div>
-            <h3>Révise</h3>
-            <p data-i18n="a3.desc">Offline exam preparation with subject quizzes, explanations and score tracking.</p>
-            <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">FR · EN</span></div>
-          </div>
-        </article>
-        <article class="card app">
-          <div class="app-icon" style="background:#7A3FC4">K</div>
-          <div>
-            <h3>Aventurier K</h3>
-            <p data-i18n="a4.desc">Geography game for children aged 5 to 10, guided by K, a friendly baby dinosaur. Playable in five languages.</p>
-            <div class="tags"><span class="tag">iOS</span><span class="tag" data-i18n="a4.tag">Kids</span></div>
-          </div>
-        </article>
+          <div class="mini-text"><h3>Révise</h3><p data-i18n="m.rv">Offline exam preparation</p></div>
+          <span class="status-pill status-dev" data-i18n="st.dev">In development</span>
+        </a>
+        <a class="card app-mini" href="/apps#aventurier-k">
+          <div class="app-icon has-img"><img src="/assets/apps/aventurier-k.png" alt="" width="56" height="56"></div>
+          <div class="mini-text"><h3>Aventurier K</h3><p data-i18n="m.ak">Geography game for kids</p></div>
+          <span class="status-pill status-dev" data-i18n="st.dev">In development</span>
+        </a>
       </div>
+      <div class="section-foot"><a class="btn btn-dark" href="/apps"><span data-i18n="apps.more">Explore all our apps</span> <span aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
@@ -471,8 +278,11 @@
         <div>
           <h4 data-i18n="foot.apps">Apps</h4>
           <ul>
+            <li><a href="/apps" data-i18n="foot.allapps">All apps</a></li>
+            <li><a href="/contact-us" data-i18n="foot.dysupport">Dumuni Yala support</a></li>
+            <li><a href="/privacy-policy" data-i18n="foot.dyprivacy">Dumuni Yala privacy</a></li>
             <li><a href="/support" data-i18n="foot.support">Carnet Boutique support</a></li>
-            <li><a href="/privacy" data-i18n="a1.privacy">Privacy policy</a></li>
+            <li><a href="/privacy" data-i18n="foot.cbprivacy">Carnet Boutique privacy</a></li>
           </ul>
         </div>
       </div>
@@ -482,121 +292,81 @@
 </footer>
 
 <script>
-(function () {
-  var FR = {
-    "nav.services": "Services",
-    "nav.approach": "Notre méthode",
-    "nav.apps": "Nos applications",
-    "nav.contact": "Contact",
-    "nav.cta": "Demander un devis",
-    "hero.eyebrow": "Services informatiques · Développement · Soutien",
-    "hero.title": "Une technologie qui fonctionne. <em>Un soutien qui répond.</em>",
-    "hero.sub": "FGA Innovations conçoit vos sites web et applications, administre les réseaux et systèmes qui les font tourner, et accompagne votre équipe au quotidien. Un seul partenaire pour toute votre informatique.",
-    "hero.cta1": "Démarrer un projet",
-    "hero.cta2": "Voir nos services",
-    "panel.title": "Votre informatique en un coup d’œil",
-    "panel.r1": "Site web", "panel.s1": "En ligne",
-    "panel.r2": "Réseau du bureau", "panel.s2": "Stable",
-    "panel.r3": "Sauvegarde de nuit", "panel.m3": "02:00 · chiffrée", "panel.s3": "Terminée",
-    "panel.r4": "Demande de soutien", "panel.m4": "imprimante · comptabilité", "panel.s4": "Résolue",
-    "panel.foot": "Surveillé et entretenu par FGA Innovations",
-    "services.eyebrow": "Ce que nous faisons",
-    "services.title": "Tout ce qui fait tourner votre entreprise, géré par une seule équipe.",
-    "s1.eyebrow": "Développement", "s1.title": "Sites web et applications",
-    "s1.desc": "Des sites web rapides et modernes et des applications pour iPhone, iPad et Android, pensés pour grandir avec votre entreprise.",
-    "s1.b1": "Sites d’entreprise et boutiques en ligne", "s1.b2": "Applications iOS et Android", "s1.b3": "Applications web, tableaux de bord et intégrations", "s1.b4": "Hébergement, domaines et maintenance",
-    "s2.eyebrow": "Administration", "s2.title": "Réseaux et systèmes",
-    "s2.desc": "Nous concevons, sécurisons et administrons l’infrastructure dont votre équipe dépend chaque jour.",
-    "s2.b1": "Réseau, Wi-Fi et pare-feu", "s2.b2": "Serveurs, cloud et Microsoft 365", "s2.b3": "Comptes utilisateurs, courriel et sécurité", "s2.b4": "Sauvegardes et plan de reprise",
-    "s3.eyebrow": "Soutien", "s3.title": "Soutien informatique",
-    "s3.desc": "De vraies personnes qui répondent, réparent et préviennent les pannes, pour que votre équipe reste productive.",
-    "s3.b1": "Centre d’assistance pour votre personnel", "s3.b2": "Soutien à distance et sur place", "s3.b3": "Installation des postes et appareils", "s3.b4": "Surveillance proactive et mises à jour",
-    "approach.eyebrow": "Notre méthode",
-    "approach.title": "De la première idée au soutien quotidien.",
-    "st1.title": "Écouter", "st1.desc": "Nous comprenons votre activité et ce qui vous freine.",
-    "st2.title": "Planifier", "st2.desc": "Une proposition claire : portée, échéancier et prix, avant le début des travaux.",
-    "st3.title": "Réaliser", "st3.desc": "Nous livrons, testons et mettons en ligne, avec une documentation qui vous appartient.",
-    "st4.title": "Accompagner", "st4.desc": "Nous restons là pour entretenir, surveiller et aider votre équipe.",
-    "apps.eyebrow": "Nos applications",
-    "apps.title": "Nous créons et publions aussi nos propres applications.",
-    "apps.sub": "Le même soin entre dans chaque projet client.",
-    "a1.desc": "Carnet de crédit numérique pour les boutiques : soldes des clients, rappels par WhatsApp ou SMS et relevés PDF. Fonctionne hors ligne.",
-    "a1.support": "Support", "a1.privacy": "Politique de confidentialité",
-    "a2.desc": "Gestion de tontine : tours, cotisations, à qui le tour, et résumés WhatsApp.",
-    "a3.desc": "Préparation aux examens hors ligne : quiz par matière, explications et suivi des scores.",
-    "a4.desc": "Jeu de géographie pour les 5 à 10 ans, guidé par K, un sympathique bébé dinosaure. Jouable en cinq langues.",
-    "a4.tag": "Enfants",
-    "why.eyebrow": "Pourquoi FGA Innovations",
-    "why.title": "Un seul partenaire. Des réponses claires. Aucune surprise.",
-    "w1.title": "Une seule équipe pour tout", "w1.desc": "Développement, infrastructure et soutien sous un même toit. Fini les renvois entre fournisseurs.",
-    "w2.title": "Français et anglais", "w2.desc": "Nous travaillons avec vous dans la langue où votre équipe est le plus à l’aise.",
-    "w3.title": "Devis écrits", "w3.desc": "Vous connaissez la portée et le prix avant le début des travaux.",
-    "w4.title": "Vous gardez le contrôle", "w4.desc": "Votre code, vos comptes et votre documentation vous appartiennent.",
-    "contact.eyebrow": "Contact",
-    "contact.title": "Parlons de votre projet.",
-    "contact.sub": "Dites-nous ce qu’il vous faut : un nouveau site, une application, un réseau qui fonctionne, ou quelqu’un à appeler quand ce n’est pas le cas.",
-    "form.name": "Nom", "form.email": "Courriel", "form.service": "Service", "form.message": "Message",
-    "form.o1": "Site web ou application", "form.o2": "Réseau et systèmes", "form.o3": "Soutien informatique", "form.o4": "Autre chose",
-    "form.send": "Envoyer le message",
-    "form.hint": "Votre logiciel de courriel s’ouvrira avec le message prêt à envoyer.",
-    "foot.tagline": "Innover. Améliorer. Réussir.",
-    "foot.company": "Entreprise", "foot.apps": "Applications",
-    "foot.support": "Support Carnet Boutique",
-    "foot.rights": "Tous droits réservés."
-  };
-
-  var nodes = document.querySelectorAll("[data-i18n], [data-i18n-html]");
-  var EN = {};
-  nodes.forEach(function (el) {
-    var key = el.getAttribute("data-i18n") || el.getAttribute("data-i18n-html");
-    if (!(key in EN)) EN[key] = el.hasAttribute("data-i18n-html") ? el.innerHTML : el.textContent;
-  });
-
-  function setLang(lang) {
-    var dict = lang === "fr" ? FR : EN;
-    nodes.forEach(function (el) {
-      var htmlKey = el.getAttribute("data-i18n-html");
-      if (htmlKey) { if (dict[htmlKey]) el.innerHTML = dict[htmlKey]; return; }
-      var key = el.getAttribute("data-i18n");
-      if (dict[key]) el.textContent = dict[key];
-    });
-    document.documentElement.lang = lang;
-    document.querySelectorAll(".lang button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
-    });
-    try { localStorage.setItem("fga-lang", lang); } catch (e) {}
-  }
-
-  var saved = null;
-  try { saved = localStorage.getItem("fga-lang"); } catch (e) {}
-  var initial = saved || ((navigator.language || "").toLowerCase().indexOf("fr") === 0 ? "fr" : "en");
-  if (initial === "fr") setLang("fr");
-
-  document.querySelectorAll(".lang button").forEach(function (b) {
-    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
-  });
-
-  var toggle = document.querySelector(".menu-toggle");
-  var links = document.getElementById("nav-links");
-  toggle.addEventListener("click", function () {
-    var open = links.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(open));
-  });
-  links.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") { links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
-  });
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var f = e.target;
-    if (!f.reportValidity()) return;
-    var subject = "[" + f.service.value + "] " + f.name.value;
-    var body = f.message.value + "\n\n" + f.name.value + "\n" + f.email.value;
-    window.location.href = "mailto:info@fga-innovations.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  });
-})();
+window.I18N_FR = {
+  "nav.services": "Services",
+  "nav.approach": "Notre méthode",
+  "nav.apps": "Nos applications",
+  "nav.contact": "Contact",
+  "nav.cta": "Demander un devis",
+  "hero.eyebrow": "Services informatiques · Développement · Soutien",
+  "hero.title": "Une technologie qui fonctionne. <em>Un soutien qui répond.</em>",
+  "hero.sub": "FGA Innovations conçoit vos sites web et applications, administre les réseaux et systèmes qui les font tourner, et accompagne votre équipe au quotidien. Un seul partenaire pour toute votre informatique.",
+  "hero.cta1": "Démarrer un projet",
+  "hero.cta2": "Voir nos services",
+  "panel.title": "Votre informatique en un coup d’œil",
+  "panel.r1": "Site web", "panel.s1": "En ligne",
+  "panel.r2": "Réseau du bureau", "panel.s2": "Stable",
+  "panel.r3": "Sauvegarde de nuit", "panel.m3": "02:00 · chiffrée", "panel.s3": "Terminée",
+  "panel.r4": "Demande de soutien", "panel.m4": "imprimante · comptabilité", "panel.s4": "Résolue",
+  "panel.foot": "Surveillé et entretenu par FGA Innovations",
+  "services.eyebrow": "Ce que nous faisons",
+  "services.title": "Tout ce qui fait tourner votre entreprise, géré par une seule équipe.",
+  "s1.eyebrow": "Développement", "s1.title": "Sites web et applications",
+  "s1.desc": "Des sites web rapides et modernes et des applications pour iPhone, iPad et Android, pensés pour grandir avec votre entreprise.",
+  "s1.b1": "Sites d’entreprise et boutiques en ligne", "s1.b2": "Applications iOS et Android", "s1.b3": "Applications web, tableaux de bord et intégrations", "s1.b4": "Hébergement, domaines et maintenance",
+  "s2.eyebrow": "Administration", "s2.title": "Réseaux et systèmes",
+  "s2.desc": "Nous concevons, sécurisons et administrons l’infrastructure dont votre équipe dépend chaque jour.",
+  "s2.b1": "Réseau, Wi-Fi et pare-feu", "s2.b2": "Serveurs, cloud et Microsoft 365", "s2.b3": "Comptes utilisateurs, courriel et sécurité", "s2.b4": "Sauvegardes et plan de reprise",
+  "s3.eyebrow": "Soutien", "s3.title": "Soutien informatique",
+  "s3.desc": "De vraies personnes qui répondent, réparent et préviennent les pannes, pour que votre équipe reste productive.",
+  "s3.b1": "Centre d’assistance pour votre personnel", "s3.b2": "Soutien à distance et sur place", "s3.b3": "Installation des postes et appareils", "s3.b4": "Surveillance proactive et mises à jour",
+  "approach.eyebrow": "Notre méthode",
+  "approach.title": "De la première idée au soutien quotidien.",
+  "st1.title": "Écouter", "st1.desc": "Nous comprenons votre activité et ce qui vous freine.",
+  "st2.title": "Planifier", "st2.desc": "Une proposition claire : portée, échéancier et prix, avant le début des travaux.",
+  "st3.title": "Réaliser", "st3.desc": "Nous livrons, testons et mettons en ligne, avec une documentation qui vous appartient.",
+  "st4.title": "Accompagner", "st4.desc": "Nous restons là pour entretenir, surveiller et aider votre équipe.",
+  "apps.eyebrow": "Nos applications",
+  "apps.title": "Nous créons et publions aussi nos propres applications.",
+  "apps.sub": "Le même soin entre dans chaque projet client.",
+  "apps.more": "Découvrir toutes nos applications",
+  "m.dy": "Trouvez et contactez des restaurants près de vous",
+  "m.cb": "Carnet de crédit numérique pour les boutiques",
+  "m.tf": "Gestion de tontines",
+  "m.rv": "Préparation aux examens hors ligne",
+  "m.ak": "Jeu de géographie pour enfants",
+  "st.live": "Sur l’App Store", "st.soon": "Bientôt disponible", "st.dev": "En développement",
+  "why.eyebrow": "Pourquoi FGA Innovations",
+  "why.title": "Un seul partenaire. Des réponses claires. Aucune surprise.",
+  "w1.title": "Une seule équipe pour tout", "w1.desc": "Développement, infrastructure et soutien sous un même toit. Fini les renvois entre fournisseurs.",
+  "w2.title": "Français et anglais", "w2.desc": "Nous travaillons avec vous dans la langue où votre équipe est le plus à l’aise.",
+  "w3.title": "Devis écrits", "w3.desc": "Vous connaissez la portée et le prix avant le début des travaux.",
+  "w4.title": "Vous gardez le contrôle", "w4.desc": "Votre code, vos comptes et votre documentation vous appartiennent.",
+  "contact.eyebrow": "Contact",
+  "contact.title": "Parlons de votre projet.",
+  "contact.sub": "Dites-nous ce qu’il vous faut : un nouveau site, une application, un réseau qui fonctionne, ou quelqu’un à appeler quand ce n’est pas le cas.",
+  "form.name": "Nom", "form.email": "Courriel", "form.service": "Service", "form.message": "Message",
+  "form.o1": "Site web ou application", "form.o2": "Réseau et systèmes", "form.o3": "Soutien informatique", "form.o4": "Autre chose",
+  "form.send": "Envoyer le message",
+  "form.hint": "Votre logiciel de courriel s’ouvrira avec le message prêt à envoyer.",
+  "foot.tagline": "Innover. Améliorer. Réussir.",
+  "foot.company": "Entreprise", "foot.apps": "Applications",
+  "foot.allapps": "Toutes les applications",
+  "foot.dysupport": "Support Dumuni Yala", "foot.dyprivacy": "Confidentialité Dumuni Yala",
+  "foot.support": "Support Carnet Boutique", "foot.cbprivacy": "Confidentialité Carnet Boutique",
+  "foot.rights": "Tous droits réservés."
+};
+</script>
+<script src="/assets/site.js"></script>
+<script>
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var f = e.target;
+  if (!f.reportValidity()) return;
+  var subject = "[" + f.service.value + "] " + f.name.value;
+  var body = f.message.value + "\n\n" + f.name.value + "\n" + f.email.value;
+  window.location.href = "mailto:info@fga-innovations.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+});
 </script>
 </body>
 </html>
