@@ -1,0 +1,62 @@
+/* FGA Innovations — design tokens (see ../../DESIGN.md). Pages use these names, never raw values. */
+:root {
+  /* Color — Midnight & Champagne */
+  --night-950: #070B16;
+  --night-900: #0B1120;
+  --night-800: #121A2E;
+  --night-700: #1C2640;
+  --on-night: #E9ECF2;
+  --on-night-muted: #9AA3B5;
+  --porcelain: #F3F2EE;
+  --paper: #FFFFFF;
+  --ink: #121826;
+  --slate: #5E6575;
+  --line: #DEDCD5;
+  --accent: #E0C48E;
+  --accent-hover: #EAD3A6;
+  --accent-ink: #7A5F2B;
+  --hairline-dark: rgba(224, 196, 142, .18);
+  --accent-ring: rgba(224, 196, 142, .35);
+  --success: #2F7D5B;
+  --warning: #B7791F;
+  --error: #B42318;
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  --fs-display: clamp(54px, 8vw, 96px);
+  --fs-h1: clamp(44px, 6vw, 68px);
+  --fs-h2: clamp(36px, 4.4vw, 50px);
+  --fs-h3: clamp(26px, 2.6vw, 30px);
+  --fs-lead: clamp(18px, 1.6vw, 20px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-label: 11px;
+  --lh-display: 1.02;
+  --lh-heading: 1.1;
+  --lh-body: 1.65;
+  --tracking-label: .22em;
+  --tracking-lockup: .34em;
+  --measure: 68ch;
+
+  /* Spacing (4-based) */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px; --space-10: 128px;
+  --section-y: 128px;
+  --content-width: 1200px;
+  --gutter: 24px;
+
+  /* Shape & depth */
+  --r-sm: 8px; --r-md: 16px; --r-lg: 24px; --r-pill: 999px;
+  --shadow-soft: 0 1px 2px rgba(18, 24, 38, .04), 0 12px 32px rgba(18, 24, 38, .06);
+  --shadow-deep: 0 30px 80px rgba(0, 0, 0, .35);
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: 200ms; --dur-base: 400ms; --dur-slow: 800ms;
+}
+
+@media (max-width: 560px) {
+  :root { --section-y: 80px; --gutter: 16px; }
+}
