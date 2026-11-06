@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fga-innovations.com/</loc></url>
-  <url><loc>https://fga-innovations.com/apps</loc></url>
-  <url><loc>https://fga-innovations.com/contact-us</loc></url>
-  <url><loc>https://fga-innovations.com/privacy-policy</loc></url>
-  <url><loc>https://fga-innovations.com/support</loc></url>
-  <url><loc>https://fga-innovations.com/privacy</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://fga-innovations.com/</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/"/></url>
+  <url><loc>https://fga-innovations.com/fr/</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/"/></url>
+  <url><loc>https://fga-innovations.com/apps</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/apps"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/apps"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/apps"/></url>
+  <url><loc>https://fga-innovations.com/fr/apps</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/apps"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/apps"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/apps"/></url>
+  <url><loc>https://fga-innovations.com/services/websites-apps</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/services/websites-apps"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/services/sites-web-applications"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/services/websites-apps"/></url>
+  <url><loc>https://fga-innovations.com/fr/services/sites-web-applications</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/services/websites-apps"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/services/sites-web-applications"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/services/websites-apps"/></url>
+  <url><loc>https://fga-innovations.com/services/networks-systems</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/services/networks-systems"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/services/reseaux-systemes"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/services/networks-systems"/></url>
+  <url><loc>https://fga-innovations.com/fr/services/reseaux-systemes</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/services/networks-systems"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/services/reseaux-systemes"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/services/networks-systems"/></url>
+  <url><loc>https://fga-innovations.com/services/it-support</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/services/it-support"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/services/soutien-informatique"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/services/it-support"/></url>
+  <url><loc>https://fga-innovations.com/fr/services/soutien-informatique</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://fga-innovations.com/services/it-support"/><xhtml:link rel="alternate" hreflang="fr" href="https://fga-innovations.com/fr/services/soutien-informatique"/><xhtml:link rel="alternate" hreflang="x-default" href="https://fga-innovations.com/services/it-support"/></url>
+  <url><loc>https://fga-innovations.com/contact-us</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://fga-innovations.com/privacy-policy</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://fga-innovations.com/support</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://fga-innovations.com/privacy</loc><lastmod>2026-11-06</lastmod></url>
 </urlset>
